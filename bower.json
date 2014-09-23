@@ -1,0 +1,19 @@
+{
+  "name": "polymer-jdisch",
+  "version": "0.0.0",
+  "authors": [
+    "JordanDDisch <jordanddisch@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.4.1",
+    "platform": "Polymer/platform#~0.4.1"
+  }
+}

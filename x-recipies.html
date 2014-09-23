@@ -1,0 +1,40 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-ajax/core-ajax.html">
+<polymer-element name="x-recipies">
+        <template>
+            <core-ajax
+                    auto
+                    url="http://www.filltext.com"
+                    params = '{"rows": "2", "fname" : "{firstName}", "image" : "{image|60x60}", "lipsum" : "{lorem|20}"}'
+                    handleAs="json"
+                    response = "{{people}}"
+                    ></core-ajax>
+            <style>
+                :host {
+                    display: block;
+                    width: 100px;
+                    height: 20px;
+                }
+                .nav {
+                    background: red;
+                }
+            </style>
+
+                <div class="nav">
+                <template repeat="{{person in people}}">
+                    <ul>
+                        <li><img src="{{person.image}}"></li>
+                        <li>{{person.fname}}</li>
+                        <li>{{person.lipsum}}</li>
+                    </ul>
+                </template>
+                </div>
+
+        </template>
+    <script>
+        Polymer('x-recipies', {
+            people: []
+        });
+    </script>
+</polymer-element>
+=
