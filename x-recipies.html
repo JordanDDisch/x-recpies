@@ -5,31 +5,38 @@
             <core-ajax
                     auto
                     url="http://www.filltext.com"
-                    params = '{"rows": "2", "fname" : "{firstName}", "image" : "{image|60x60}", "lipsum" : "{lorem|20}"}'
+                    params = '{"rows": "2", "fname" : "{firstName}", "image" : "{image|500x200}", "lipsum" : "{lorem|20}"}'
                     handleAs="json"
                     response = "{{people}}"
                     ></core-ajax>
             <style>
                 :host {
                     display: block;
-                    width: 100px;
-                    height: 20px;
+                    width: 100%;
                 }
-                .nav {
-                    background: red;
+                .recipies {
+                    list-style: none;
+                    display: block;
                 }
-            </style>
+                .recipies__wrapper {
+                    width: 100%;
+                    margin: .5em;
+                }
 
-                <div class="nav">
+                .p {
+                    width: 100%;
+                }
+
+            </style>
+            <div class="recipies">
+                <div class="recipies__wrapper">
                 <template repeat="{{person in people}}">
-                    <ul>
-                        <li><img src="{{person.image}}"></li>
-                        <li>{{person.fname}}</li>
-                        <li>{{person.lipsum}}</li>
-                    </ul>
+                        <img class="recipies__image" src="{{person.image}}">
+                        <h2 class="recipies__title">{{person.fname}}</h2>
+                        <p class="recipies__intro">{{person.lipsum}}</p>
                 </template>
                 </div>
-
+            </div>
         </template>
     <script>
         Polymer('x-recipies', {
